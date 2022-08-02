@@ -2,10 +2,12 @@ package com.bss.test;
 
 import com.amazonaws.services.lambda.runtime.events.SQSEvent;
 import com.bss.test.handler.SqsRequestHandlerWrapper;
-import lombok.extern.log4j.Log4j2;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Log4j2
 public class Handler implements SqsRequestHandlerWrapper<Void> {
+
+    private static final Logger log = LogManager.getLogger(Handler.class);
 
     public Void handleRequest(SQSEvent sqsEvent) {
         log.info("=== start");
